@@ -1,0 +1,24 @@
+.featured__container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+h3 {
+  border-bottom: 3px solid rgb(177, 220, 93);
+}
+
+.featured__heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  width: auto;
+}
+
+.featured__carousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40vh;
+}

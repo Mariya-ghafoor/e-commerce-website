@@ -1,0 +1,108 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+// .container {
+
+//   background: linear-gradient(
+//     to bottom,
+//     black 0%,
+//     black 50%,
+//     white 50%,
+//     white 100%
+//   );
+//   position: relative;
+//   height: 100vh;
+//   width: 100vw;
+
+// }
+
+.container {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  // height: 50vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  width: 100%;
+  height: 40vh;
+}
+
+// .heading {
+//   align-self: flex-start;
+//   font-size: 10rem;
+//   color: white;
+
+//   @media screen and (max-width: 950px) {
+//     font-size: 6rem;
+//   }
+
+//   @media screen and (max-width: 690px) {
+//     font-size: 5rem;
+//   }
+//   height: 50vh;
+// }
+
+.logo__nike {
+  // display: inline-block;
+  color: rgb(177, 220, 93);
+  font-size: 13rem;
+  height: auto;
+  text-decoration: underline;
+  // padding: 2rem;
+
+  @media screen and (max-width: 910px) {
+    font-size: 10rem;
+  }
+
+  @media screen and (max-width: 661px) {
+    font-size: 8rem;
+  }
+
+  @media screen and (max-width: 541px) {
+    font-size: 6rem;
+  }
+
+  @media screen and (max-width: 420px) {
+    font-size: 4rem;
+  }
+
+  // width: 50%;
+
+  // @media screen and (max-width: 950px) {
+  //   height: 20vh;
+  //   // align-self: flex-start;
+  //   height: 15vh;
+  // }
+
+  // @media screen and (max-width: 690px) {
+  //   font-size: 5rem;
+  // }
+}
+
+.logo__shoe {
+  display: inline-block;
+  margin-top: 8rem;
+  z-index: 1;
+
+  transform: rotate(320deg);
+  height: 14rem;
+  @media screen and (max-width: 930px) {
+    height: 12rem;
+  }
+
+  @media screen and (max-width: 661px) {
+    height: 10rem;
+  }
+
+  @media screen and (max-width: 477px) {
+    height: 8rem;
+  }
+
+  @media screen and (max-width: 420px) {
+    height: 6rem;
+  }
+}

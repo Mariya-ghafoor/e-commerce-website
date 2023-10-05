@@ -1,0 +1,21 @@
+.navbar {
+  background-color: black;
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding: 10px;
+  padding-right: 20px;
+}
+
+.link {
+  color: white;
+  font-size: 1.4rem;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.active_link {
+  color: rgb(177, 220, 93);
+}
