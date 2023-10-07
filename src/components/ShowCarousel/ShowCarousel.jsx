@@ -22,14 +22,15 @@ function ShowCarousel({ products }) {
     <>
       {products && (
         <Carousel
-          infiniteLoop={false}
+          infiniteLoop={true}
           useKeyboardArrows
-          autoPlay={false}
+          autoPlay={true}
           showThumbs={false}
           showStatus={false}
+          showArrows={false}
           centerMode
           centerSlidePercentage={33.34}
-          // showIndicators={false}
+          showIndicators={true}
           onClickItem={onClickHandler}
           className={styles.carousel__container}
         >

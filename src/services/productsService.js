@@ -14,7 +14,6 @@ export const getFeaturedProducts = async () => {
 //............
 
 export const getProductById = async (id) => {
-  console.log("getting product by id ", id);
   const collectionRef = collection(db, "products");
 
   const snapshot = await getDocs(collectionRef);
@@ -22,14 +21,13 @@ export const getProductById = async (id) => {
     .map((doc) => ({ id: doc.id, ...doc.data() }))
     .filter((product) => product.id == id);
 
-  console.log("i got product ", productById);
-
   return productById;
 };
 
 //............
 
-export const queryDatabase = async (shoeId, shoeColor, shoeSize) => {
+export const getAllProducts = async () => {
+  console.log("getting all products");
   //console.log("im querying db");
   //const collectionRef = collection(db, "products");
   //const snapshot = await getDocs(collectionRef);
@@ -45,16 +43,41 @@ export const queryDatabase = async (shoeId, shoeColor, shoeSize) => {
   //   console.log(doc.id, " => ", doc.data());
   // });
 
-  const collectionRef = collection(db, "products", shoeId, shoeColor);
+  const collectionRef = collection(db, "products");
 
   const snapshot = await getDocs(collectionRef);
-  const documents = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  const products = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
 
-  const shoe = documents.filter((doc) => doc.id === shoeSize);
+  // const shoe = documents.filter((doc) => doc.id === shoeSize);
 
-  const quantityAvailable = shoe[0].quantity;
+  // const quantityAvailable = shoe[0].quantity;
 
   //console.log(quantityAvailable);
+  console.log("got products ", products);
 
-  return quantityAvailable;
+  return products;
+};
+
+//......
+export const checkIfAvailable = async (productName, color, size) => {
+  console.log("receieved in product service", productName);
+  console.log("receieved in product service", color);
+  console.log("receieved in product service", size);
+
+  const collectionRef = collection(db, "products", productName, color);
+
+  const snapshot = await getDocs(collectionRef);
+  console.log("snapshot  ", snapshot);
+  const AvailQuantity = snapshot.docs
+    .map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }))
+    .filter((shoeSize) => shoeSize.id == size);
+
+  console.log("Available quantity is: ", AvailQuantity[0].quantity);
+
+  if (AvailQuantity[0].quantity > 0) {
+    return true;
+  } else return false;
 };

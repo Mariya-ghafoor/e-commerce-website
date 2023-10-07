@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
+.products__container {
+  font-family: "Varela Round", sans-serif;
+  font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin: 2rem;
+}

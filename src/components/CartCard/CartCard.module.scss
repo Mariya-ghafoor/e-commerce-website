@@ -1,0 +1,19 @@
+.container__card {
+  height: 40vh;
+  width: 60vh;
+  display: flex;
+  //border: 2px solid black;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: rgba(142, 143, 142, 0.162);
+  &__image {
+    height: 90%;
+    flex-basis: 50%;
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+  }
+}
