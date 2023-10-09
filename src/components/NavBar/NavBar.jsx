@@ -14,9 +14,6 @@ function NavBar() {
       <NavLink className={linkStyles} to="/products">
         Products
       </NavLink>
-      <NavLink className={linkStyles} to="/contact">
-        Contact
-      </NavLink>
       <NavLink className={linkStyles} to="/cart">
         Cart
       </NavLink>

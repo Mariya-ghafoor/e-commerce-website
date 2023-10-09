@@ -13,12 +13,42 @@ body {
   width: 100vw;
 }
 
-.product__image {
+.product__image__container {
+  position: relative;
+  display: flex;
   height: 30rem;
-  flex-basis: 20%;
+  //width: max-content;
+  flex-basis: 30%;
   margin: 2rem;
-  border: 1px solid black;
-  border-radius: 10px;
+  //border: 1px solid black;
+  // border-radius: 10px;
+
+  flex-shrink: 0;
+  flex: 0 0 20rem;
+}
+
+.icon {
+  position: absolute;
+  margin: 1rem;
+}
+
+.icon__fill {
+  position: absolute;
+  margin: 1rem;
+  color: orange;
+}
+
+.product__image {
+  position: absolute;
+  height: 30rem;
+  width: 20rem;
+  //width: auto;
+  //flex-shrink: 1;
+  //flex-basis: 20%;
+  //margin: 2rem;
+  //border: 1px solid black;
+  //border-radius: 10px;
+  //opacity: 0;
 }
 
 .product__details {
@@ -82,5 +112,6 @@ button {
   font-family: "Varela Round", sans-serif;
   &:hover {
     color: rgb(177, 220, 93);
+    cursor: pointer;
   }
 }

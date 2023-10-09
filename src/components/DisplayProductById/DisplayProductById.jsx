@@ -3,12 +3,16 @@ import styles from "./DisplayProductById.module.scss";
 import { checkIfAvailable } from "../../services/productsService";
 import { useContext, useState } from "react";
 import { CartContext } from "../../context/CartContextProvider/CartContextProvider";
+import { addToFavourites } from "../../services/productsService";
 
 function DisplayProductById({ product }) {
   const [selectedColor, setSelectedColor] = useState("black");
   const [selectedSize, setSelectedSize] = useState("3.5");
+  const [isFavourite, setIsFavourite] = useState(false);
   const { productsInCart, setProductsInCart } = useContext(CartContext);
-  //const [isAvailable, setIsAvailable] = useState(false);
+
+  const iconStyleTransparent = "fa-regular fa-star " + styles.icon;
+  const iconStyleFill = "fa-solid fa-star " + styles.icon__fill;
 
   const addToCart = async () => {
     const isAvailable = await checkIfAvailable(
@@ -19,8 +23,10 @@ function DisplayProductById({ product }) {
     if (isAvailable === true) {
       product.color = selectedColor; //We need to add these properties to the object as they are not originally properties but subcollections.
       product.size = selectedSize;
-      setProductsInCart((productsInCart) => [...productsInCart, product]);
-      console.log("i have set products in cart ", productsInCart);
+
+      if (productsInCart !== null)
+        setProductsInCart((productsInCart) => [...productsInCart, product]);
+      else setProductsInCart([product]);
     }
   };
 
@@ -34,14 +40,26 @@ function DisplayProductById({ product }) {
     console.log(e.target.value);
     setSelectedSize(e.target.value);
   };
+
+  const onFavouriteClick = async () => {
+    const isFav = await addToFavourites(product.name);
+    if (isFav === true) setIsFavourite(true);
+  };
   return (
     <>
       <div className={styles.product__container}>
-        <img
-          className={styles.product__image}
-          src={product.imageUrl}
-          alt={product.name}
-        />
+        <div className={styles.product__image__container}>
+          <img
+            className={styles.product__image}
+            src={product.imageUrl}
+            alt={product.name}
+          />
+          {isFavourite ? (
+            <i className={iconStyleFill}></i>
+          ) : (
+            <i className={iconStyleTransparent}></i>
+          )}
+        </div>
 
         <div className={styles.product__details}>
           <h2 className={styles.product__details__heading}>{product.name}</h2>
@@ -68,7 +86,7 @@ function DisplayProductById({ product }) {
             <button onClick={addToCart}>Add to Cart</button>
           </div>
           <div className={styles.product__details__button}>
-            <button>Add to Favourites</button>
+            <button onClick={onFavouriteClick}>Add to Favourites</button>
           </div>
         </div>
       </div>

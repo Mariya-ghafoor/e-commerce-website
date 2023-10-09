@@ -2,46 +2,52 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContextProvider/CartContextProvider";
 import CartCard from "../../components/CartCard/CartCard";
 import styles from "./CartPage.module.scss";
+import { addToCartInDb, getProductsFromCart } from "../../services/cartService";
+import { getProductById } from "../../services/productsService";
 
 function CartPage() {
   const { productsInCart, setProductsInCart } = useContext(CartContext);
-
+  const [cart, setCart] = useState(null);
   const [subtotal, setSubtotal] = useState(0);
   const [total, setTotal] = useState(0);
-  const [checkoutMessage, setCheckoutMessage] = useState(null);
 
   const calculateTotalPrice = () => {
     //Add price of all the products in cart
-    try {
-      const productsPrice = productsInCart
-        .map((product) => product.price)
-        .reduce((initial, next) => (initial = initial * 1 + next * 1));
-      setSubtotal(productsPrice);
+    const productsPrice = productsInCart
+      .map((product) => product.price)
+      .reduce((initial, next) => (initial = initial * 1 + next * 1));
+    setSubtotal(productsPrice);
 
-      //Calculate total price after adding delivery fee
-      const totalPrice = productsPrice + 8;
-      setTotal(totalPrice);
-    } catch {}
-  };
-
-  const onCheckoutClick = () => {
-    localStorage.clear();
-    setProductsInCart(null);
-    setCheckoutMessage("thank you for shopping with us.");
+    //Calculate total price after adding delivery fee
+    const totalPrice = productsPrice + 8;
+    setTotal(totalPrice);
   };
 
   useEffect(() => {
-    console.log("in use effext");
-    if (productsInCart && productsInCart.length > 0) {
-      console.log("products in cart", productsInCart);
-      localStorage.setItem("products", JSON.stringify(productsInCart));
+    console.log("products in cart on cart page ", productsInCart);
+
+    if (productsInCart.length > 0) {
       calculateTotalPrice();
+      addProductsToCart();
     }
   }, [productsInCart]);
 
+  const addProductsToCart = () => {
+    addToCartInDb(productsInCart)
+      .then(() => getProductsFromCart(productsInCart))
+      .then((products) => {
+        console.log("Receieved from db ", products);
+        setCart(products);
+      });
+
+    console.log("products in cart after adding to db, ", cart);
+  };
+
+  //addProductsToCart();
+
   return (
     <>
-      {productsInCart && productsInCart.length > 0 && (
+      {productsInCart.length > 0 && (
         <div className={styles.page__container}>
           <div className={styles.cards__container}>
             {productsInCart &&
@@ -55,14 +61,11 @@ function CartPage() {
             <p>Subtotal: ${subtotal} </p>
             <p>Delivery fee: $8 </p>
             <p>Total: ${total}</p>
-            <button onClick={onCheckoutClick}>Checkout</button>
+            <button>Checkout</button>
           </div>
         </div>
       )}
-      {productsInCart &&
-        productsInCart.length == 0 &&
-        checkoutMessage === null && <h2>Cart is empty</h2>}
-      {checkoutMessage && <h2>Thank you for shopping with us.</h2>}
+      {productsInCart.length === 0 && <h2>Cart is empty</h2>}
     </>
   );
 }
