@@ -31,7 +31,8 @@ function DisplayProductById({ product }) {
   };
 
   const onChangeColor = (e) => {
-    console.log("on change color");
+    console.log("new color ", e.target.value);
+
     setSelectedColor(e.target.value);
   };
 
