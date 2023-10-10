@@ -16,7 +16,6 @@ function DisplayProductById({ product }) {
   const iconStyleFill = "fa-solid fa-star " + styles.icon__fill;
 
   const addToCart = async () => {
-    console.log("^^^^add to cart");
     const isAvailable = await checkIfAvailable(
       product.name,
       selectedColor,
@@ -29,14 +28,14 @@ function DisplayProductById({ product }) {
       if (productsInCart !== null) {
         const newArr = productsInCart;
         newArr.push({ ...product });
-        console.log("new arr", newArr);
-        setProductsInCart(newArr);
 
         //setProductsInCart((productsInCart) => [...productsInCart, product]);
       } else setProductsInCart([product]);
       setIsInCart(true);
     }
   };
+
+  //for added to cart message
 
   useEffect(() => {
     const timeId = setTimeout(() => {
@@ -48,6 +47,10 @@ function DisplayProductById({ product }) {
       clearTimeout(timeId);
     };
   }, [isInCart]);
+
+  //to check fav when page first renders
+
+  useEffect(() => {}, []);
 
   const onChangeColor = (e) => {
     setSelectedColor(e.target.value);

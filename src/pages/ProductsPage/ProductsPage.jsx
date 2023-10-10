@@ -6,13 +6,11 @@ import styles from "./ProductsPage.module.scss";
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
 function ProductsPage() {
-  console.log("im in featured products");
   const [products, setProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [product, setProduct] = useState(null);
 
   const getProducts = () => {
-    console.log("i m getting all products");
     getAllProducts()
       .then((products) => setProducts(products))
       .then(() => setIsLoading(false))
@@ -20,7 +18,6 @@ function ProductsPage() {
   };
 
   useEffect(() => {
-    console.log("in useEffect");
     setIsLoading(true);
     getProducts();
   }, []);

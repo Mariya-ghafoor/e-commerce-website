@@ -8,8 +8,7 @@ import CartPage from "./pages/CartPage/CartPage";
 import CartContextProvider from "./context/CartContextProvider/CartContextProvider";
 
 function App() {
-  //queryDatabase("Air Jordan", "black", "3.5");
-  //addToCartInDb();
+
 
   return (
     <BrowserRouter>

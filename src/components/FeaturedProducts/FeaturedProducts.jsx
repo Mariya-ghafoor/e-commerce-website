@@ -7,12 +7,10 @@ import ShowCarousel from "../showCarousel/showCarousel";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 function FeaturedProducts() {
-  console.log("im in featured products");
   const [featuredProducts, setFeaturedProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   const getProducts = () => {
-    console.log("i m getting products");
     getFeaturedProducts()
       .then((products) => setFeaturedProducts(products))
       .then(() => setIsLoading(false))
@@ -20,7 +18,6 @@ function FeaturedProducts() {
   };
 
   useEffect(() => {
-    console.log("in useEffect");
     setIsLoading(true);
     getProducts();
   }, []);

@@ -2,7 +2,6 @@
 import styles from "./CarouselCard.module.scss";
 
 function CarouselCard({ id, product }) {
-  console.log("i received product in Carousel ", product);
   return (
     <div className={styles.carousel__card__container}>
       <img

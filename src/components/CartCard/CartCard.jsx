@@ -8,8 +8,6 @@ function CartCard({ product }) {
 
   const icon = "fa-solid fa-trash " + styles.icon;
   const onDeleteClick = () => {
-    console.log("products in Cart before deleting ", productsInCart);
-
     const productsAfterDelete = productsInCart.filter((item) => {
       if (
         item.id === product.id &&

@@ -31,9 +31,7 @@ function CartPage() {
   };
 
   useEffect(() => {
-    console.log("in use effext");
     if (productsInCart && productsInCart.length > 0) {
-      console.log("products in cart", productsInCart);
       localStorage.setItem("products", JSON.stringify(productsInCart));
       calculateTotalPrice();
     }
@@ -59,9 +57,10 @@ function CartPage() {
           </div>
         </div>
       )}
-      {productsInCart &&
-        productsInCart.length == 0 &&
-        checkoutMessage === null && <h2>Cart is empty</h2>}
+      {productsInCart === null ||
+        (productsInCart &&
+          productsInCart.length == 0 &&
+          checkoutMessage === null && <h2>Cart is empty</h2>)}
       {checkoutMessage && <h2>Thank you for shopping with us.</h2>}
     </>
   );
