@@ -8,7 +8,7 @@ import { addToFavourites } from "../../services/productsService";
 function DisplayProductById({ product }) {
   const [selectedColor, setSelectedColor] = useState("black");
   const [selectedSize, setSelectedSize] = useState("3.5");
-  const [isFavourite, setIsFavourite] = useState(false);
+  const [isFavourite, setIsFavourite] = useState(product.isFavourite);
   const [isInCart, setIsInCart] = useState(false);
   const { productsInCart, setProductsInCart } = useContext(CartContext);
 
@@ -105,7 +105,11 @@ function DisplayProductById({ product }) {
             <button onClick={addToCart}>Add to Cart</button>
           </div>
           <div className={styles.product__details__button}>
-            <button onClick={onFavouriteClick}>Add to Favourites</button>
+            {isFavourite ? (
+              <button onClick={onFavouriteClick}>Remove from Favourites</button>
+            ) : (
+              <button onClick={onFavouriteClick}>Add to Favourites</button>
+            )}
           </div>
           <div className={styles.product__add__to__cart}>
             {isInCart && (
