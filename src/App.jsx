@@ -8,11 +8,10 @@ import CartPage from "./pages/CartPage/CartPage";
 import CartContextProvider from "./context/CartContextProvider/CartContextProvider";
 
 function App() {
-
-
   return (
     <BrowserRouter>
       <NavBar />
+      <LandingPage />
       <CartContextProvider>
         <Routes>
           <Route path="/" element={<LandingPage />} />
