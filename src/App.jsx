@@ -9,7 +9,7 @@ import CartContextProvider from "./context/CartContextProvider/CartContextProvid
 
 function App() {
   return (
-    <BrowserRouter basename="/e-commerce-website/">
+    <BrowserRouter>
       <NavBar />
 
       <CartContextProvider>
