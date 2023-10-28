@@ -1,6 +1,6 @@
 import "./App.css";
 import LandingPage from "./pages/LandingPage/LandingPage";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar/NavBar";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
@@ -9,7 +9,8 @@ import CartContextProvider from "./context/CartContextProvider/CartContextProvid
 
 function App() {
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
+    <HashRouter>
       <NavBar />
 
       <CartContextProvider>
@@ -20,7 +21,8 @@ function App() {
           <Route path="/cart" element={<CartPage />} />
         </Routes>
       </CartContextProvider>
-    </BrowserRouter>
+    </HashRouter>
+    //</BrowserRouter>
   );
 }
 
