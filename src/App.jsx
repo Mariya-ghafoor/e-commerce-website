@@ -9,9 +9,9 @@ import CartContextProvider from "./context/CartContextProvider/CartContextProvid
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/e-commerce-website/">
       <NavBar />
-      <LandingPage />
+
       <CartContextProvider>
         <Routes>
           <Route path="/" element={<LandingPage />} />
