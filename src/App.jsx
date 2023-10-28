@@ -14,16 +14,10 @@ function App() {
 
       <CartContextProvider>
         <Routes>
-          <Route path="/e-commerce-website" element={<LandingPage />} />
-          <Route
-            path="/e-commerce-website/products"
-            element={<ProductsPage />}
-          />
-          <Route
-            path="/e-commerce-website/products/:id"
-            element={<ProductPage />}
-          />
-          <Route path="/e-commerce-website/cart" element={<CartPage />} />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/products" element={<ProductsPage />} />
+          <Route path="/products/:id" element={<ProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
         </Routes>
       </CartContextProvider>
     </BrowserRouter>
