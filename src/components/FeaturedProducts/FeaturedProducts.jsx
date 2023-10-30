@@ -3,7 +3,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { getFeaturedProducts } from "../../services/productsService";
 import { useEffect, useState } from "react";
-import ShowCarousel from "../showCarousel/showCarousel";
+import ShowCarousel from "../ShowCarousel/ShowCarousel";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 function FeaturedProducts() {
