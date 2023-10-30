@@ -1,8 +1,30 @@
-# React + Vite
+# E-COMMERCE WEBSITE
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Demo
 
-Currently, two official plugins are available:
+- Check out the deployed site: [E-Commerce Website](https://e-commerce-website786.netlify.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Purpose
+
+- The purpose of the project was to create a functional e-commerce website using firestore for database services and rendering products by real time access to the database.
+
+## Design goals
+
+- The design of the website was kept simple yet appealing. The green and black colors provide a contrast which attracts the attention while bold font goes with the image of the brand (Nike)
+
+## Features
+
+- The navbar gives access to different routes (pages)
+- A carousel on the homepage shows featured products which are sourced directly from the remote database.
+- Products page provides further list of products.
+- Clicking a particular product opens the individual product page with product details and variances.
+- Users can add the product to the cart or add it to favourites. Favourites are updated in the database with a star over image showing its favourite status.
+- Products in cart are stored in session storage.
+- Cart shows total cost of all the products selected.
+- Users can either delete a product or checkout which removes the product from the cart.
+
+## Future Goals
+
+- Update the database when user checksout the cart.
+- Update database to remove favourite status.
+- Allow the user to increase qunantity of the product in cart.
