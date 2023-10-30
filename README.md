@@ -2,7 +2,7 @@
 
 ## Demo
 
-- Check out the deployed site: [E-Commerce Website](https://e-commerce-website786.netlify.app/)
+- Check out the deployed site: <a href="https://e-commerce-website786.netlify.app/" target="_blank">E-Commerce Website</a>
 
 ## Purpose
 
