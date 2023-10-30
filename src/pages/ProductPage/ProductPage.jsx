@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getProductById } from "../../services/productsService";
-import DisplayProductById from "../../components/displayProductById/displayProductById.jsx";
+import DisplayProductById from "../../components/DisplayProductById/displayProductById.jsx";
 
 import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
 
