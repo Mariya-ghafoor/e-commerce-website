@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { Carousel } from "react-responsive-carousel";
-import styles from "./showCarousel.module.scss";
+import styles from "./ShowCarousel.module.scss";
 import CarouselCard from "../CarouselCard/CarouselCard";
 import { useNavigate } from "react-router-dom";
 
